@@ -24,6 +24,19 @@ def index():
 """
 Collection of addresses based on the user name.
 Performing calculations and deletions of addresses.
+
+ # All addresses:
+    # 1,f"{windows_user_name}/Downloads" Download > group1 >>> windows 10 and 11 
+    # 2,"C:/Windows/SoftwareDistribution" windows update cleanup > group6 >>> windows 10 and 11
+    # 3,f"{windows_user_name}/AppData/Local/Microsoft/Windows/Explorer" thumbnail > group3 >>> windows 10 and 11
+    # 4,"C:/Windows/Logs" Windows Logs > group8 >>> windows 10 and 11
+    # 5,"C:/Windows/Panther/UnattendGC" Windows upgrade log > group7 >>> windows 10 and 11
+    # 6,f"{windows_user_name}/AppData/Local/Temp" _ "C:/Windows/Temp" Temporary > group4 >>> windows 10 and 11
+    # 7,"C:/Windows/ServiceProfiles/NetworkService/AppData/Local/Temp" _ "C:/Windows/ServiceProfiles/NetworkService/AppData/Local/Microsoft/Windows/DeliveryOptimization" Delivery Optimization > group5 >>> windows 10 and 11
+    # 8,f"{windows_user_name}/AppData/Local/NVIDIA" _ f"{windows_user_name}/AppData/Local/AMD" * (Somewhat unknown) AMD or NVIDIA Caches > group9 >>> windows 10 and 11
+    # 9,f"{windows_user_name}/AppData/Local/Google/Chrome/User Data/Default/Cache" * 2  google chrome cache > group10 >>> windows 10 and 11
+    # 10,f"{windows_user_name}/AppData/Local/Mozilla/Firefox/Profile" * 3 Firefox caches > group11 >>> windows 10 and 11
+    # 11,f"{windows_user_name}/AppData/Local/Opera Software" * 1 opera Cache > group12== >>> windows 10 and 11
 """
 @app.route("/", methods = ["GET","POST"])
 def finish():
