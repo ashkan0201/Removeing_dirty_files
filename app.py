@@ -20,3 +20,96 @@ app = Flask(__name__, template_folder = "template")
 @app.route("/")
 def index():
     return render_template("project.html")
+
+"""
+Collection of addresses based on the user name.
+Performing calculations and deletions of addresses.
+"""
+@app.route("/", methods = ["GET","POST"])
+def finish():
+
+    group_list_adress = []
+    try:
+        if request.form["group1"]:
+            group_list_adress.append(f"{windows_user_name}/Downloads")
+    except:
+        pass
+    try:
+        if request.form["group3"]:
+            group_list_adress.append(f"{windows_user_name}/AppData/Local/Microsoft/Windows/Explorer")
+    except:
+        pass
+    try:
+        if request.form["group4"]:
+            group_list_adress.append("C:/Windows/Temp")
+            group_list_adress.append(f"{windows_user_name}/AppData/Local/Temp")
+    except:
+        pass
+    try:
+        if request.form["group5"]:
+            group_list_adress.append("C:/Windows/ServiceProfiles/NetworkService/AppData/Local/Temp")
+            group_list_adress.append("C:/Windows/ServiceProfiles/NetworkService/AppData/Local/Microsoft/Windows/DeliveryOptimization")
+    except:
+        pass
+    try:
+        if request.form["group6"]:
+            group_list_adress.append("C:/Windows/SoftwareDistribution")
+    except:
+        pass
+    try:
+        if request.form["group7"]:
+            group_list_adress.append("C:/Windows/Panther/UnattendGC")
+    except:
+        pass
+    try:
+        if request.form["group8"]:
+            group_list_adress.append("C:/Windows/Logs")
+    except:
+        pass
+    try:
+        if request.form["group9"]: 
+            isFolder = os.path.exists(f"{windows_user_name}/AppData/Local/NVIDIA")
+            if isFolder == True:
+                group_list_adress.append(f"{windows_user_name}/AppData/Local/NVIDIA/GLCache")
+                group_list_adress.append(f"{windows_user_name}/AppData/Local/NVIDIA/DXCache")
+                group_list_adress.append("C:/ProgramData/NVIDIA")
+                group_list_adress.append("C:/ProgramData/NVIDIA Corporation/NV_Cache")
+            else:
+                group_list_adress.append(f"{windows_user_name}/AppData/Local/AMD/DxCache")
+                group_list_adress.append(f"{windows_user_name}/AppData/Local/AMD/DxcCache")
+                group_list_adress.append(f"{windows_user_name}/AppData/Local/AMD/GLCache")
+                group_list_adress.append(f"{windows_user_name}/AppData/Local/AMD/VKCache")
+    except:
+        pass
+    try:
+        if request.form["group10"]:
+            group_list_adress.append(f"{windows_user_name}/Local/Google/Chrome/User Data/Default/Cache")
+    except:
+        pass
+    try:
+        if request.form["group11"]:
+            list_of_Firefox = []
+            for Folders, Sub_Folders, Files in os.walk(f"{windows_user_name}/AppData/Local/Mozilla/Firefox/Profiles"):
+                for everything in Sub_Folders:
+                    list_of_Firefox.append(everything)
+            for everything in list_of_Firefox:
+                isFolder = os.path.exists(f"{windows_user_name}/AppData/Local/Mozilla/Firefox/Profiles/{everything}/cache2")
+                if isFolder == True:
+                    group_list_adress.append(f"{windows_user_name}/AppData/Local/Mozilla/Firefox/Profiles/{everything}/cache2")
+                    group_list_adress.append(f"{windows_user_name}/AppData/Local/Mozilla/Firefox/Profiles/{everything}/startupCache")
+    except:
+        pass
+    try:
+        if request.form["group12"]:
+            group_list_adress.append(f"{windows_user_name}/AppData/Local/Opera Software")
+    except:
+        pass
+    try:
+        if request.form["group2"]:
+            RecycleBin_list = list(winshell.recycle_bin())
+            for everything in RecycleBin_list: 
+                with open(f'{windows_user_name}/Desktop/out_put.txt', "a+")as out_put:
+                    out_put.write(f"RECYCLE BIN DELETED: {everything}" + "\n")
+            winshell.recycle_bin().empty(confirm=False, show_progress=False, sound=False)        
+    except:
+        pass
