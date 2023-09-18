@@ -156,3 +156,6 @@ def finish():
         with open(f'{windows_user_name}/Desktop/out_put.txt' ,"w") as file:
             file.write(data)
     return render_template("project1.html")
+
+if __name__ == "__main__":
+    app.run()
