@@ -126,3 +126,33 @@ def finish():
             winshell.recycle_bin().empty(confirm=False, show_progress=False, sound=False)        
     except:
         pass
+
+    """
+    In this section, we prepare the obtained addresses 
+    for deletion and put the output in out_put.txt
+    """
+    for everything in group_list_adress:
+        isFolder1 = os.path.exists(everything)
+        if isFolder1 == True:
+            with open(f'{windows_user_name}/Desktop/out_put.txt' , "a+")as out_put:
+                for Folders, Sub_Folders, Files in os.walk(everything):
+                    for everything in Sub_Folders:
+                        try:
+                            shutil.rmtree(f"{Folders}/{everything}")
+                            out_put.write(f"FOLDER IS DELETED: {Folders}/{everything}\t{Time}"+"\n")
+                        except:
+                            out_put.write(f"ACCESS DENIED(FOLDER IS NOT DELETED): {Folders}/{everything}\t{Time}"+"\n")
+                    for everything in Files:
+                        try:
+                            os.unlink(f"{Folders}/{everything}")
+                            out_put.write(f"FILE IS DELETED: {Folders}/{everything}\t{Time}"+"\n")
+                        except:
+                            out_put.write(f"ACCESS DENIED(FILE IS NOT DELETED): {Folders}/{everything}\t{Time}"+"\n")
+        else:
+            with open(f'{windows_user_name}/Desktop/out_put.txt' , "a+")as out_put:
+                out_put.write("We could not find a folder with this address in your system. Address: "+ everything + f"\t{Time}" + "\n")
+        with open(f'{windows_user_name}/Desktop/out_put.txt', "r") as file:
+            data = file.read()
+        with open(f'{windows_user_name}/Desktop/out_put.txt' ,"w") as file:
+            file.write(data)
+    return render_template("project1.html")
