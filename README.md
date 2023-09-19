@@ -48,7 +48,5 @@ I am Ashkan Noroozi and I have been working in the field of programming for a lo
 This project will not be my first and last project and I will not stop trying.
 Now I am 18 years old and I dedicate this software to someone I love very much "F"
 
-Contact addresses with me:
+Contact addresse with me:
 * my Gmail: ashkan02011@gmail.com
-* my Instagram: ashkitentacion1
-* my NumberPhone: +989191401586
