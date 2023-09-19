@@ -31,7 +31,9 @@ Download this item to avoid errors :
 
 When you click on the Python file named clear_data.py, you will see text on a screen like a command line.
 You will see this text on that page.
+
 * Running on http://(Your Ip):5000
+
 It shows the original address of the software and just search this address in your browser.
 
 When you run that address in the browser, you will come across a page.
