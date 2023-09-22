@@ -22,9 +22,13 @@ Programming languages used:
 Download this item to avoid errors :
 
 ```bash
-  $ pip install flask
-  $ pip install winshell
-  $ pip install pywin32
+pip install flask
+pip install winshell
+pip install pywin32
+```
+or
+```
+pip install -r requirements.txt
 ```
     
 ## Description
