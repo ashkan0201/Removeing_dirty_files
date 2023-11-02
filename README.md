@@ -1,6 +1,6 @@
 # removeing_dirty_files (Windows 10 and 11)
 
-![Logo](		https://github.com/ashkan0201/removeing_dirty_files/blob/main/IMG/for_app.png?raw=true)
+![Logo](https://github.com/ashkan0201/removeing_dirty_files/blob/main/IMG/for_app.png?raw=true)
 
 This software helps you to delete some unnecessary Windows folders and files that occupied extra space in your Windows.
 
